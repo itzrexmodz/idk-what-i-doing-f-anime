@@ -3,6 +3,7 @@
 # Licensed under MIT License
 # Special Thanks for gogoanime
 
+from os import environ
 from pyrogram import *
 from pyrogram.handlers import *
 from src.anime_search import anime_search
@@ -19,7 +20,6 @@ from src.instructions import instructions
 from src.airing import airing_eps
 from src.inline_search_results import anime_inline_details
 from src.get_ep_numbers import get_ep
-import config
 
 # Logging is optional
 logging.basicConfig(
@@ -29,10 +29,10 @@ logger = logging.getLogger(__name__)
 
 # Creating a Session to activate all Handlers
 bot = Client(
-    "YOUR_SESSION_NAME",
-    api_id=config.api_id,
-    api_hash=config.api_hash,
-    bot_token=config.bot_token
+    "idk-what-i-doing-f-anime",
+    api_id=environ.get("API_ID"),
+    api_hash=environ.get("API_HASH"),
+    bot_token=environ.get("BOT_TOKEN")
 )
 
 # Adding all functions to Handlers in main() function
